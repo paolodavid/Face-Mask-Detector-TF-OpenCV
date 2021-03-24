@@ -1,0 +1,54 @@
+{% extends "template.html" %}
+{% block content %}
+
+<p>&nbsp;</p>
+  <h1 class="entry-title" style="text-align: center;">Face Mask Detector</h1>
+  <h1 class="entry-title" style="text-align: center;"><img style="font-size: 14px; font-family: -webkit-standard;" src="http://www.paolodavid.com/wp-content/img/mask.png" alt="" width="56" height="56" />&nbsp;&nbsp;<img src="http://www.paolodavid.com/wp-content/img/mask-2.png" alt="" width="56" height="56" /></h1>
+  <p style="text-align: center;">COVID-19 face mask detector with OpenCV, Keras/TensorFlow, and Deep Learning</p>
+  <p style="text-align: center;">Web-app created by Paolo David</p>
+  <p style="text-align: center;"><img src="http://www.paolodavid.com/wp-content/img/github-2.png" alt="" width="26" height="26" />&nbsp;<a href="https://github.com/paolodavid">https://github.com/paolodavid</a></p>
+
+<div class="container">
+    <div class="container-fluid">
+        <div id="frame_container" class="row">
+            <div class="col-12">
+                <img id="ciao" src="/static/images/stay-safe.jpg"
+                     class="img-thumbnail img-fluid mx-auto d-block">
+            </div>
+        </div>
+        <div class="row mt-3 mb-5">
+            <div class="col-6 d-flex justify-content-end">
+                <button id="start" onclick="start()" class="btn btn-outline-success"><i class="fa fa-video-camera"
+                                                                                        aria-hidden="true"></i> Start
+                </button>
+            </div>
+            <div class="col-6 d-flex justify-content-start">
+                <button id="stop" onclick="stop()" class="btn btn-danger active"><i class="fa fa-stop"
+                                                                                    aria-hidden="true"></i> Stop
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block custom_js %}
+<script>
+$(document).ready(function(){
+    $('#image-detector').attr('class', 'nav-item');
+    $('#live').attr('class', 'nav-item active');
+})
+
+    function stop(){
+        $("#ciao").attr("src", "/static/images/stay-safe.jpg");
+        $("#stop").attr("class","btn btn-danger active");
+        $("#start").attr("class","btn btn-outline-success");
+    }
+    function start(){
+        $("#ciao").attr("src", "{{url_for('main.video_feed')}}");
+        $("#start").attr("class","btn btn-success active");
+        $("#stop").attr("class","btn btn-outline-danger");
+    }
+
+</script>
+
+{% endblock %}
