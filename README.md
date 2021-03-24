@@ -1,4 +1,4 @@
-# NLP for Twitter Sentiment Analysis
+# Face Mask Detection Web-App
 Face Mask Detection web application based on computer vision and deep learning, created using OpenCV, Flask and Tensorflow/Keras
 
 # Video
